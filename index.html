@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arimo&display=swap"
+      rel="stylesheet"
+    />
+    <title>What to watch</title>
+  </head>
+  <body>
+    <div class="fullscreen-background">
+      <div class="container">
+        <div class="tag-flex-wrapper">
+          <p class="tag-wrapper tag-description">список фильмов</p>
+          <p class="tag-wrapper tag-description">2023</p>
+        </div>
+        <h1 class="main-title">Посмотреть</h1>
+          <div class="form-wrapper">
+            <input id="user-input" type="text" class="input" placeholder="Добавить фильм" />
+            <button id="add-btn" class="add-movie-btn">
+              <img src="images/add-btn-img.png" alt="Стрелка в право" />
+            </button>
+          
+          <ul id="movie-list-wrapper" class="movie-list-flex-wrapper">
+            <li class="movie-item">
+              <label class="flex">
+                <input type="checkbox" class="real-checkbox">
+                <span class="circle-checkbox"></span>
+                <span class="delete-movie-btn"></span>
+              </label> 
+            </li>
+          </ul>
+          </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
