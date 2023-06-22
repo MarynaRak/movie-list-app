@@ -1,38 +1,47 @@
 const inputNode = document.querySelector('.input');
 const addBtnNode = document.querySelector('.add-movie-btn');
-const movieListHTML = document.getElementById('movie-list-wrapper');
+const movieListNode = document.getElementById('movie-list-wrapper');
 
-addBtnNode.addEventListener('click', getMovieItemFromUser);
+addBtnNode.addEventListener('click', getMovieItem);
 
-function getMovieItemFromUser() {
-    const movieTitleText = getMovieTitleFromUser();
+function getMovieItem() {
+    renderMovieList();
     clearInput();
+    saveData()
+}
 
-    let li = document.createElement("li");
-    li.innerHTML = movieTitleText;
+movieListNode.addEventListener("click", function(e) {
+  if (e.target.dataset.action === "watched"){
+    e.target.classList.toggle("watched-movie");
+    saveData()
+  } else  if (e.target.tagName === "BUTTON") {
+    const parentNode = e.target.closest('li');
+    parentNode.remove();
+    saveData()
+  } 
+})
 
-    li.classList.add("movie-item");
-    movieListHTML.appendChild(li);
+function clearInput() {
+    inputNode.value = '';
+}
 
-    let lable = document.createElement("label");
-    lable.classList.add("flex");
-    li.append(lable);
+function renderMovieList() {
 
-    let input = document.createElement("input");
-    input.setAttribute('type', 'checkbox');
-    input.classList.add("real-checkbox");
-    lable.append(input);
+    const movieItemTitle = getMovieTitleFromUser();
+    if (!movieItemTitle) {
+        return;
+    }
 
-    let span = document.createElement("span");
-    span.classList.add("circle-checkbox");
-    lable.append(span);
+    const movieItem = `<li data-action="watched" class="movie-item">
+    <label>
+      <input type="checkbox" class="real-checkbox">
+      <span class="circle-checkbox"></span>
+      ${movieItemTitle}
+      <button class="delete-movie-btn"></button>
+    </label> 
+  </li>`;
 
-
-
-    let secondSpan = document.createElement("span");
-    span.classList.add("delete-movie-btn");
-    lable.append(secondSpan);
-
+    movieListNode.insertAdjacentHTML('beforeend', movieItem);
 }
 
 function getMovieTitleFromUser() {
@@ -42,10 +51,15 @@ function getMovieTitleFromUser() {
         alert('Введите название фильма');
         return;
     }
-    
+
     return movieTitle;
 }
 
-function clearInput() {
-    inputNode.value = '';
+function saveData() {
+    localStorage.setItem("data", movieListNode.innerHTML);
 }
+
+function showMovieList() {
+    movieListNode.innerHTML = localStorage.getItem('data');
+}
+showMovieList()

@@ -22,22 +22,18 @@
           <p class="tag-wrapper tag-description">2023</p>
         </div>
         <h1 class="main-title">Посмотреть</h1>
-          <div class="form-wrapper">
-            <input id="user-input" type="text" class="input" placeholder="Добавить фильм" />
-            <button id="add-btn" class="add-movie-btn">
-              <img src="images/add-btn-img.png" alt="Стрелка в право" />
-            </button>
-          
-          <ul id="movie-list-wrapper" class="movie-list-flex-wrapper">
-            <li class="movie-item">
-              <label class="flex">
-                <input type="checkbox" class="real-checkbox">
-                <span class="circle-checkbox"></span>
-                <span class="delete-movie-btn"></span>
-              </label> 
-            </li>
-          </ul>
-          </div>
+        <div class="list-wrapper">
+          <input
+            id="user-input"
+            type="text"
+            class="input"
+            placeholder="Добавить фильм"
+          />
+          <button id="add-btn" class="add-movie-btn">
+            <img src="images/add-btn-img.png" alt="Стрелка в право" />
+          </button>
+          <ul id="movie-list-wrapper" class="movie-list-flex-wrapper"></ul>
+        </div>
       </div>
     </div>
     <script src="index.js"></script>
