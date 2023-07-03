@@ -98,7 +98,7 @@ body {
   overflow-y: auto;
 }
 
-.movie-item {
+li {
   position: relative;
   padding: 27px 20px;
   font-size: 20px;
@@ -107,44 +107,34 @@ body {
   border-radius: 10px;
 }
 
-
-.real-checkbox {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  position: absolute;
-  z-index: -1;
-}
-
-.circle-checkbox {
-  position: relative;
+li::before {
+  content: '';
   display: inline-block;
   margin-right: 20px;
   width: 19px;
   height: 19px;
   border-radius: 100px;
   border: 1px solid #f3f6f9;
-  opacity: 0.3;
+  background-color: transparent;
+  vertical-align: middle;
 }
 
-.circle-checkbox::before {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: 0.2s ease-in;
-  content: "";
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border-radius: 100px;
-  border: 1px solid #f3f6f9;
-  background: #6532f8;
+li.checked {
+  text-decoration: line-through;
+  opacity: 0.5;
+    border: 1px solid black;
 }
 
-.real-checkbox:checked + .circle-checkbox::before{
-  transform: translate(-50%, -50%) scale(1); 
+li.checked::before {
+  background-color: #6532f8;
+
 }
+
+/* .watched-movie-btn-checked {
+  background-color: #6532f8;
+} */
+
+
 
 .delete-movie-img {
   pointer-events: none;
@@ -167,9 +157,9 @@ body {
   background-color: #3a3939;
 }
 
-.watched-movie {
+/* .watched-movie {
   text-decoration: line-through;
 opacity: 0.5;
   border: 1px solid black;
-}
+} */
 
