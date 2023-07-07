@@ -46,12 +46,13 @@ function addMovieItem(event) {
 
   movies.push(newMovieItem);
 
- 
+
 
   // const cssClass = newMovieItem.done ? "movie-item watched-movie" : "movie-item";
 
-  const movieItemHTML = `<li data-action="viewed" id="${newMovieItem.id}">
-        ${newMovieItem.text}       
+  const movieItemHTML = `<li id="${newMovieItem.id}" class="movie-item">
+        <span data-action="viewed" class="watched-movie-btn">
+        ${newMovieItem.text}</span>
         <button data-action="delete" class="delete-movie-btn">
         <img class="delete-movie-img" src="images/delete-movie-img.svg" alt="Крестик"/>
         </button>
@@ -76,12 +77,17 @@ function getMovieTitleFromUser() {
 };
 
 function watchedMovieItem(event) {
-  if (event.target.dataset.action === "viewed") {
-     event.target.closest('li').classList.toggle("checked");
+  if (event.target.dataset.action !== "viewed") {
+    return;
   }
-  
 
- 
+  const parentNode = event.target.closest('.movie-item');
+  const movieTitle = parentNode.querySelector('.watched-movie-btn');
+
+  parentNode.classList.toggle("watched-movie");
+  movieTitle.classList.toggle("watched-movie-btn-checked");
+
+
 };
 
 function deleteMovieItem(event) {
@@ -96,7 +102,7 @@ function deleteMovieItem(event) {
       }
     })
 
- 
+
 
     parentNode.remove();
   }

@@ -98,7 +98,8 @@ body {
   overflow-y: auto;
 }
 
-li {
+.movie-item {
+  display: flex;
   position: relative;
   padding: 27px 20px;
   font-size: 20px;
@@ -107,32 +108,21 @@ li {
   border-radius: 10px;
 }
 
-li::before {
-  content: '';
-  display: inline-block;
+
+.watched-movie-btn {
+  pointer-events: none;
   margin-right: 20px;
   width: 19px;
   height: 19px;
   border-radius: 100px;
   border: 1px solid #f3f6f9;
   background-color: transparent;
-  vertical-align: middle;
 }
 
-li.checked {
-  text-decoration: line-through;
-  opacity: 0.5;
-    border: 1px solid black;
-}
 
-li.checked::before {
+.watched-movie-btn-checked {
   background-color: #6532f8;
-
 }
-
-/* .watched-movie-btn-checked {
-  background-color: #6532f8;
-} */
 
 
 
@@ -157,9 +147,9 @@ li.checked::before {
   background-color: #3a3939;
 }
 
-/* .watched-movie {
+.watched-movie {
   text-decoration: line-through;
 opacity: 0.5;
   border: 1px solid black;
-} */
+}
 
