@@ -7,7 +7,7 @@ body {
 
 .fullscreen-background {
   width: 100%;
-  padding: 80px 0 100px;
+  padding: 80px 0 300px;
   background: #181818;
 }
 
@@ -91,7 +91,6 @@ body {
 }
 
 .movie-list-flex-wrapper {
-  height: 470px;
   display: flex;
   flex-direction: column;
   gap: 3px;
